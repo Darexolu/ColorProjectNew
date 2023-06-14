@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ColorProject.UpdateorDelete"
+             xmlns:projectEntry="clr-namespace:ColorProject">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />-->
+            <projectEntry:ColorCustomView/>
+
+            <Grid  Margin="0,350,0,0">
+                <Button Text="Update" BackgroundColor="Green" TextColor="white" Margin="80,0,80,0" HorizontalOptions="Start"  WidthRequest="80" CornerRadius="30" Clicked="Update"></Button>
+                <Button Text="Delete" BackgroundColor="Red" TextColor="White"  HorizontalOptions="End" Margin="80,0,80,0"  WidthRequest="80" CornerRadius="30" Clicked="Delete"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

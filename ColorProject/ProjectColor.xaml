@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ColorProject.ProjectColor">
+    <NavigationPage.HasNavigationBar >
+        False
+    </NavigationPage.HasNavigationBar>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame  VerticalOptions="Start" HeightRequest="80"   HorizontalOptions="CenterAndExpand" BackgroundColor="GreenYellow"  WidthRequest="400" Margin="0,0,0,15" CornerRadius="10">
+                <Label Text="Color Dynamism" FontAttributes="Bold" HorizontalOptions="Center" FontSize="50" />
+            </Frame>
+            <StackLayout>
+                <ListView ItemsSource="{Binding Colours}" HasUnevenRows="True" RowHeight="40">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Grid>
+                                        <Label Margin="0,0" FontSize="20" TextColor="White" Padding="20,0,20,0" Text="{Binding ColorName}" HeightRequest="50"  BackgroundColor="{Binding Coloring}">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="Navigate_Tapped" NumberOfTapsRequired="1"    CommandParameter="{Binding ColourId}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                        <!--<Label Margin="0,0"  Text="{Binding ColorName}"/>-->
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout>
+                <Button WidthRequest="100" Margin="100,0,100,5" CornerRadius="30" FontSize="20" Clicked="Add_New" Text="Add New"></Button>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

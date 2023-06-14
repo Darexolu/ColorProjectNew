@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:colorproject="clr-namespace:ColorProject"
+             x:DataType="colorproject:AddorEditViewModel"
+             x:Class="ColorProject.AddorEditColor"
+             xmlns:projectEntry="clr-namespace:ColorProject">
+    <NavigationPage.HasNavigationBar >
+        False
+    </NavigationPage.HasNavigationBar>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Blue" CornerRadius="30">
+                <Label Text="(+) Create Color (edit) (Name)" TextColor="White" HorizontalOptions="Center" FontSize="30"/>
+            </Frame>
+            <Entry Placeholder="Colour Name" Keyboard="Text" Margin="0,20,0,20" TextColor="Black" FontSize="Large" Text="{Binding Coloured.ColorName}"/>
+            <BoxView  Color="{Binding Coloured.Coloring}" />
+            <Entry Placeholder="Colour" Keyboard="Numeric" Text="{Binding Coloured.R}" />
+            <Entry Placeholder="Colour" Keyboard="Numeric" Text="{Binding Coloured.G}" />
+            <Entry Placeholder="Colour" Keyboard="Numeric" Text="{Binding Coloured.B}" />
+            <projectEntry:ColorCustomView/>
+            <Grid  Margin="0,50,0,10" VerticalOptions="EndAndExpand">
+                <Button Text="Update"  BackgroundColor="Green" TextColor="white" Margin="80,0,80,0" HorizontalOptions="Start"  WidthRequest="80" CornerRadius="0" Clicked="Update"></Button>
+                    <Label Text="DELETE"   Padding="25,15,0,10" BackgroundColor="Red" TextColor="White"  HorizontalOptions="End" Margin="80,0,80,0"  WidthRequest="80" >
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Delete" NumberOfTapsRequired="1" CommandParameter="{Binding Coloured.ColourId}"/>
+                    </Label.GestureRecognizers>
+                    </Label>
+            </Grid>
+
+            <Grid  Margin="0,0,0,5">
+                <Button Text="Save" BackgroundColor="Green" TextColor="white" Margin="80,0,80,0" HorizontalOptions="Start"  WidthRequest="80" CornerRadius="10" Clicked="Save"></Button>
+                <Button Text="Discard" BackgroundColor="Red" TextColor="White"  HorizontalOptions="End" Margin="80,0,80,0"  WidthRequest="80"   CornerRadius="10" Clicked="Discard"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
